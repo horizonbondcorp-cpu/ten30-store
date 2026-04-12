@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ten30 Studios — AI Agent Services & Digital Products</title>
-  <meta name="description" content="SOC 2 compliance automation, AI agent teams, and digital products from Ten30 Studios." />
+  <title>Ten30 Studios — Premium Digital Planners, Templates & AI Services</title>
+  <meta name="description" content="Premium digital planners, printable templates, SOC 2 compliance automation, and AI agent services from Ten30 Studios." />
+  <meta property="og:title" content="Ten30 Studios — Premium Digital Planners & AI Services" />
+  <meta property="og:description" content="Shop premium digital planners and templates. Also offering SOC 2 compliance and AI agent pilot programs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ten30-store.vercel.app" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwindcss.config = {
       theme: {
         extend: {
           colors: {
+            navy: '#1B3A4B',
+            gold: '#D4A574',
+            cream: '#F5F0EB',
+            'cream-dark': '#E8E0D8',
             midnight: '#0f172a',
             surface: '#1e293b',
             border: '#334155',
@@ -19,6 +27,7 @@
             muted: '#94a3b8',
           },
           fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
             sans: ['Inter', 'system-ui', 'sans-serif'],
           },
         },
@@ -27,179 +36,416 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
 </head>
-<body class="bg-midnight text-white font-sans antialiased">
+<body class="bg-cream text-navy font-sans antialiased">
 
   <!-- Nav -->
-  <nav class="border-b border-border">
+  <nav class="bg-navy text-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold tracking-tight">Ten30<span class="text-accent">.</span>studio</a>
-      <a href="mailto:sales@ten30.studio" class="text-sm text-muted hover:text-white transition-colors">Contact Sales</a>
+      <a href="/" class="font-display text-2xl font-bold tracking-tight">Ten30<span class="text-gold">.</span>Studios</a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="#planners" class="hover:text-gold transition-colors">Planners</a>
+        <a href="#services" class="hover:text-gold transition-colors">AI Services</a>
+        <a href="mailto:sales@ten30.studio" class="text-gold hover:text-white transition-colors font-medium">Contact</a>
+      </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <header class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-12 md:pt-24 md:pb-16">
-    <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-4">AI-Powered Services</p>
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight max-w-3xl">
-      Deploy AI agents.<br/>Automate compliance.<br/>Ship faster.
-    </h1>
-    <p class="mt-6 text-lg text-muted max-w-2xl leading-relaxed">
-      Ten30 Studios builds and deploys autonomous AI agent teams. Buy our digital products or book a pilot engagement to automate your operations.
-    </p>
+  <header class="bg-navy text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-12 md:pt-20 md:pb-16 text-center">
+      <p class="text-gold font-semibold text-sm uppercase tracking-widest mb-4">Premium Digital Products</p>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight max-w-3xl mx-auto">
+        Plan smarter.<br/>Live better.
+      </h1>
+      <p class="mt-6 text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Beautiful, printable planners and templates for every part of your life. Instant digital download — start organizing today.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <button onclick="filterProducts('all')" class="filter-btn active px-4 py-2 rounded-full text-sm font-semibold bg-gold text-navy transition-all" data-filter="all">All Products</button>
+        <button onclick="filterProducts('seasonal')" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-white/10 text-white hover:bg-gold hover:text-navy transition-all" data-filter="seasonal">Seasonal</button>
+        <button onclick="filterProducts('everyday')" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-white/10 text-white hover:bg-gold hover:text-navy transition-all" data-filter="everyday">Everyday</button>
+        <button onclick="filterProducts('comprehensive')" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-white/10 text-white hover:bg-gold hover:text-navy transition-all" data-filter="comprehensive">Comprehensive</button>
+        <button onclick="filterProducts('bundle')" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-white/10 text-white hover:bg-gold hover:text-navy transition-all" data-filter="bundle">Bundles</button>
+      </div>
+    </div>
   </header>
 
-  <!-- Products -->
-  <section id="products" class="max-w-6xl mx-auto px-4 sm:px-6 pb-24">
-    <div class="grid md:grid-cols-2 gap-6">
+  <!-- Digital Planners -->
+  <section id="planners" class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="product-grid">
 
-      <!-- SOC 2 Assessment -->
-      <div class="bg-surface rounded-2xl border border-border p-8 flex flex-col">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+      <!-- Complete Bundle -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col border-2 border-gold" data-category="bundle">
+        <div class="bg-gold text-navy text-center py-2 text-xs font-bold uppercase tracking-wider">Best Value — Save 60%</div>
+        <div class="h-48 bg-gradient-to-br from-navy to-navy/80 flex items-center justify-center">
+          <div class="text-center text-white px-4">
+            <p class="font-display text-2xl font-bold">Complete Bundle</p>
+            <p class="text-gold text-sm mt-1">All 16 Products</p>
           </div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-accent">Compliance</span>
         </div>
-        <h3 class="text-xl font-bold mb-2">SOC 2 Readiness Assessment</h3>
-        <p class="text-muted text-sm leading-relaxed flex-1">
-          Comprehensive gap analysis of your SOC 2 posture across AWS, GitHub, and Okta. AI agents audit your infrastructure and deliver a prioritized remediation report within 72 hours. Covers CC6, CC7, CC8, and A1 controls.
-        </p>
-        <div class="mt-6 flex items-end justify-between">
-          <div>
-            <span class="text-3xl font-bold">$499</span>
-            <span class="text-muted text-sm ml-1">one-time</span>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-display text-lg font-bold text-navy">Complete Planner Bundle</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Every planner, tracker, and template in one download. 16 premium products at one unbeatable price.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <div>
+              <span class="text-sm text-gray-400 line-through">$95.83</span>
+              <span class="text-2xl font-bold text-navy ml-1">$39.99</span>
+            </div>
+            <button onclick="checkout('complete-bundle')" class="bg-gold hover:bg-gold/80 text-navy px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-complete-bundle">Buy Bundle</button>
           </div>
-          <button onclick="checkout('soc2-assessment')" class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors disabled:opacity-50" id="btn-soc2-assessment">
-            Buy Now
-          </button>
         </div>
       </div>
 
-      <!-- Agent Guide -->
-      <div class="bg-surface rounded-2xl border border-border p-8 flex flex-col">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+      <!-- Easter 2026 Planner -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="seasonal">
+        <img src="/images/easter-2026-planner.jpg" alt="Easter 2026 Planner" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Seasonal</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Easter 2026 Planner</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Plan the perfect Easter celebration with menus, activities, and timelines.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$7.99</span>
+            <button onclick="checkout('easter-planner')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-easter-planner">Buy Now</button>
           </div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-accent">Digital Product</span>
-        </div>
-        <h3 class="text-xl font-bold mb-2">Agent Team Setup Guide</h3>
-        <p class="text-muted text-sm leading-relaxed flex-1">
-          Step-by-step playbook for deploying AI agent teams using Paperclip. Includes agent org chart templates, role definitions, approval flow designs, budget controls, and real examples from our 28-agent production setup.
-        </p>
-        <div class="mt-6 flex items-end justify-between">
-          <div>
-            <span class="text-3xl font-bold">$99</span>
-            <span class="text-muted text-sm ml-1">one-time</span>
-          </div>
-          <button onclick="checkout('agent-guide')" class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors disabled:opacity-50" id="btn-agent-guide">
-            Buy Now
-          </button>
         </div>
       </div>
 
-      <!-- Pilot Deposit -->
-      <div class="bg-surface rounded-2xl border border-accent/30 ring-1 ring-accent/20 p-8 flex flex-col relative">
-        <div class="absolute -top-3 left-8">
-          <span class="bg-accent text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Most Popular</span>
-        </div>
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" /></svg>
+      <!-- Spring Daily Planner -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="seasonal">
+        <img src="/images/spring-daily-planner.jpg" alt="Spring Daily Planner" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Seasonal</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Spring Daily Planner</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Fresh daily planner with spring-inspired design. Goals, tasks, and gratitude.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$5.99</span>
+            <button onclick="checkout('spring-planner')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-spring-planner">Buy Now</button>
           </div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-accent">Pilot Program</span>
-        </div>
-        <h3 class="text-xl font-bold mb-2">Pilot Engagement Deposit</h3>
-        <p class="text-muted text-sm leading-relaxed flex-1">
-          Book a 4-week AI agent pilot. We deploy 3-5 agents to automate one business function — ops, marketing, compliance, or finance. Includes discovery, build, deploy, and measurement. Deposit applied to total pilot fee ($5K-$15K).
-        </p>
-        <div class="mt-6 flex items-end justify-between">
-          <div>
-            <span class="text-3xl font-bold">$2,500</span>
-            <span class="text-muted text-sm ml-1">booking fee</span>
-          </div>
-          <button onclick="checkout('pilot-deposit')" class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors disabled:opacity-50" id="btn-pilot-deposit">
-            Book Pilot
-          </button>
         </div>
       </div>
 
-      <!-- Monthly Ops -->
-      <div class="bg-surface rounded-2xl border border-border p-8 flex flex-col">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" /></svg>
+      <!-- 2026 Monthly Calendar -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="everyday">
+        <img src="/images/monthly-calendar-2026.jpg" alt="2026 Monthly Calendar" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Everyday</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">2026 Monthly Calendar</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Clean monthly calendar for the full year. Print and plan month by month.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$4.99</span>
+            <button onclick="checkout('monthly-calendar')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-monthly-calendar">Buy Now</button>
           </div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-accent">Subscription</span>
         </div>
-        <h3 class="text-xl font-bold mb-2">Monthly Agent Operations</h3>
-        <p class="text-muted text-sm leading-relaxed flex-1">
-          Managed AI agent team operations. We monitor, optimize, and update your agents. Includes configuration changes, performance reporting, and escalation handling. AI compute costs passed through at cost.
-        </p>
-        <div class="mt-6 flex items-end justify-between">
-          <div>
-            <span class="text-3xl font-bold">$1,500</span>
-            <span class="text-muted text-sm ml-1">/month</span>
+      </div>
+
+      <!-- Budget Tracker -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="comprehensive">
+        <img src="/images/budget-tracker-2026.jpg" alt="Budget Tracker 2026" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Comprehensive</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Budget Tracker 2026</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">30-page financial tracker. Income, expenses, savings goals, and debt payoff.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$6.99</span>
+            <button onclick="checkout('budget-tracker')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-budget-tracker">Buy Now</button>
           </div>
-          <button onclick="checkout('monthly-ops')" class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors disabled:opacity-50" id="btn-monthly-ops">
-            Subscribe
-          </button>
+        </div>
+      </div>
+
+      <!-- Meal Planning Bundle -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="everyday">
+        <img src="/images/meal-planning-bundle.jpg" alt="Meal Planning Bundle" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Everyday</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Meal Planning Bundle</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Weekly meal planner, grocery list, recipe cards, and pantry inventory.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$5.99</span>
+            <button onclick="checkout('meal-planner')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-meal-planner">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wedding Planning Checklist -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="comprehensive">
+        <img src="/images/wedding-planning-checklist.jpg" alt="Wedding Planning Checklist" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Comprehensive</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Wedding Planning Checklist</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Complete wedding planner with timeline, vendor tracker, budget, and seating chart.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$8.99</span>
+            <button onclick="checkout('wedding-planner')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-wedding-planner">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fitness & Wellness Tracker -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="everyday">
+        <img src="/images/fitness-wellness-tracker.jpg" alt="Fitness & Wellness Tracker" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Everyday</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Fitness & Wellness Tracker</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Workout log, meal tracker, water intake, measurements, and goal setting.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$5.99</span>
+            <button onclick="checkout('fitness-tracker')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-fitness-tracker">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home Organization Checklist -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="everyday">
+        <img src="/images/home-organization-checklist.jpg" alt="Home Organization Checklist" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Everyday</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Home Organization Checklist</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Cleaning schedule, home inventory, maintenance tracker, and moving checklist.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$4.99</span>
+            <button onclick="checkout('home-organization')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-home-organization">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Self-Care Journal -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="everyday">
+        <img src="/images/self-care-journal.jpg" alt="Self-Care Journal" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Everyday</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Self-Care Journal</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Daily wellness prompts, mood tracking, gratitude pages, and self-reflection.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$4.99</span>
+            <button onclick="checkout('self-care-journal')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-self-care-journal">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media Content Planner -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="comprehensive">
+        <img src="/images/social-media-content-planner.jpg" alt="Social Media Content Planner" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Comprehensive</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Social Media Content Planner</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Content calendar, post tracker, analytics log, and hashtag strategy.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$5.99</span>
+            <button onclick="checkout('social-media-planner')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-social-media-planner">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Study Planner -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="everyday">
+        <img src="/images/student-study-planner.jpg" alt="Student Study Planner" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Everyday</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Student Study Planner</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Class schedule, assignment tracker, study planner, and exam prep sheets.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$4.99</span>
+            <button onclick="checkout('student-planner')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-student-planner">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Travel Planning Kit -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="everyday">
+        <img src="/images/travel-planning-kit.jpg" alt="Travel Planning Kit" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Everyday</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Travel Planning Kit</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Packing list, itinerary builder, budget tracker, and activity planner.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$5.99</span>
+            <button onclick="checkout('travel-kit')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-travel-kit">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side Hustle Planner -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="comprehensive">
+        <img src="/images/side-hustle-planner.jpg" alt="Side Hustle Planner" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Comprehensive</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Side Hustle Planner</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Business idea tracker, income goals, expense log, and launch checklist.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$5.99</span>
+            <button onclick="checkout('side-hustle-planner')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-side-hustle-planner">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reading Journal -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="everyday">
+        <img src="/images/reading-journal.jpg" alt="Reading Journal" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Everyday</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Reading Journal</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Book tracker, reading log, review pages, and TBR list organizer.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$4.99</span>
+            <button onclick="checkout('reading-journal')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-reading-journal">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Moving Day Checklist -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="everyday">
+        <img src="/images/moving-day-checklist.jpg" alt="Moving Day Checklist" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Everyday</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Moving Day Checklist</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Room-by-room packing list, timeline, utility transfer tracker, and address updates.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$4.99</span>
+            <button onclick="checkout('moving-checklist')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-moving-checklist">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Baby's First Year Planner -->
+      <div class="product-card bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col" data-category="comprehensive">
+        <img src="/images/babys-first-year-planner.jpg" alt="Baby's First Year Planner" class="h-48 w-full object-cover" loading="lazy" />
+        <div class="p-5 flex flex-col flex-1">
+          <span class="text-xs font-semibold text-gold uppercase tracking-wider">Comprehensive</span>
+          <h3 class="font-display text-lg font-bold text-navy mt-1">Baby's First Year Planner</h3>
+          <p class="text-sm text-gray-500 mt-1 flex-1">Milestone tracker, feeding log, sleep schedule, and monthly memory pages.</p>
+          <div class="mt-4 flex items-end justify-between">
+            <span class="text-2xl font-bold text-navy">$6.99</span>
+            <button onclick="checkout('baby-planner')" class="bg-navy hover:bg-navy/80 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors" id="btn-baby-planner">Buy Now</button>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- About Strip -->
-  <section class="border-t border-border">
+  <!-- AI Services Section -->
+  <section id="services" class="bg-midnight text-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-      <div class="grid md:grid-cols-3 gap-8 text-center">
-        <div>
-          <p class="text-3xl font-bold text-accent">28</p>
-          <p class="text-muted text-sm mt-1">AI agents in production</p>
+      <div class="text-center mb-12">
+        <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-4">AI-Powered Services</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold">Deploy AI agents. Automate compliance. Ship faster.</h2>
+        <p class="mt-4 text-muted max-w-2xl mx-auto">We build and deploy autonomous AI agent teams. Book a pilot engagement or buy our compliance assessment.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- SOC 2 Assessment -->
+        <div class="bg-surface rounded-2xl border border-border p-8 flex flex-col">
+          <span class="text-xs font-semibold uppercase tracking-wider text-accent mb-3">Compliance</span>
+          <h3 class="text-xl font-bold mb-2">SOC 2 Readiness Assessment</h3>
+          <p class="text-muted text-sm leading-relaxed flex-1">Comprehensive gap analysis of your SOC 2 posture across AWS, GitHub, and Okta. AI agents audit your infrastructure and deliver a prioritized remediation report within 72 hours.</p>
+          <div class="mt-6 flex items-end justify-between">
+            <div><span class="text-3xl font-bold">$499</span><span class="text-muted text-sm ml-1">one-time</span></div>
+            <button onclick="checkout('soc2-assessment')" class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors" id="btn-soc2-assessment">Buy Now</button>
+          </div>
         </div>
-        <div>
-          <p class="text-3xl font-bold text-accent">3</p>
-          <p class="text-muted text-sm mt-1">Companies run by agents</p>
+
+        <!-- Agent Guide -->
+        <div class="bg-surface rounded-2xl border border-border p-8 flex flex-col">
+          <span class="text-xs font-semibold uppercase tracking-wider text-accent mb-3">Digital Product</span>
+          <h3 class="text-xl font-bold mb-2">Agent Team Setup Guide</h3>
+          <p class="text-muted text-sm leading-relaxed flex-1">Step-by-step playbook for deploying AI agent teams using Paperclip. Includes agent org chart templates, role definitions, approval flow designs, and budget controls.</p>
+          <div class="mt-6 flex items-end justify-between">
+            <div><span class="text-3xl font-bold">$99</span><span class="text-muted text-sm ml-1">one-time</span></div>
+            <button onclick="checkout('agent-guide')" class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors" id="btn-agent-guide">Buy Now</button>
+          </div>
         </div>
-        <div>
-          <p class="text-3xl font-bold text-accent">1</p>
-          <p class="text-muted text-sm mt-1">Human founder</p>
+
+        <!-- Pilot Deposit -->
+        <div class="bg-surface rounded-2xl border border-accent/30 ring-1 ring-accent/20 p-8 flex flex-col relative">
+          <div class="absolute -top-3 left-8"><span class="bg-accent text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Most Popular</span></div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-accent mb-3">Pilot Program</span>
+          <h3 class="text-xl font-bold mb-2">Pilot Engagement Deposit</h3>
+          <p class="text-muted text-sm leading-relaxed flex-1">Book a 4-week AI agent pilot. We deploy 3-5 agents to automate one business function. Deposit applied to total pilot fee ($5K-$15K).</p>
+          <div class="mt-6 flex items-end justify-between">
+            <div><span class="text-3xl font-bold">$2,500</span><span class="text-muted text-sm ml-1">booking fee</span></div>
+            <button onclick="checkout('pilot-deposit')" class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors" id="btn-pilot-deposit">Book Pilot</button>
+          </div>
         </div>
+
+        <!-- Monthly Ops -->
+        <div class="bg-surface rounded-2xl border border-border p-8 flex flex-col">
+          <span class="text-xs font-semibold uppercase tracking-wider text-accent mb-3">Subscription</span>
+          <h3 class="text-xl font-bold mb-2">Monthly Agent Operations</h3>
+          <p class="text-muted text-sm leading-relaxed flex-1">Managed AI agent team operations. Monitoring, optimization, configuration updates, and monthly performance reporting.</p>
+          <div class="mt-6 flex items-end justify-between">
+            <div><span class="text-3xl font-bold">$1,500</span><span class="text-muted text-sm ml-1">/month</span></div>
+            <button onclick="checkout('monthly-ops')" class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors" id="btn-monthly-ops">Subscribe</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-navy text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div><p class="text-3xl font-bold text-gold">17</p><p class="text-gray-300 text-sm mt-1">Digital Products</p></div>
+        <div><p class="text-3xl font-bold text-gold">28</p><p class="text-gray-300 text-sm mt-1">AI Agents</p></div>
+        <div><p class="text-3xl font-bold text-gold">3</p><p class="text-gray-300 text-sm mt-1">Companies</p></div>
+        <div><p class="text-3xl font-bold text-gold">1</p><p class="text-gray-300 text-sm mt-1">Human Founder</p></div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-border">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-muted text-sm">&copy; 2026 Ten30 Studios. All rights reserved.</p>
-      <p class="text-muted text-sm">sales@ten30.studio</p>
+  <footer class="bg-navy text-white border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-gray-400 text-sm">&copy; 2026 Ten30 Studios. All rights reserved.</p>
+        <div class="flex items-center gap-6 text-sm text-gray-400">
+          <a href="https://etsy.com/shop/Ten30Studios" target="_blank" class="hover:text-gold transition-colors">Etsy Shop</a>
+          <a href="https://gumroad.com/ten30studios" target="_blank" class="hover:text-gold transition-colors">Gumroad</a>
+          <a href="https://ten30studio.com" target="_blank" class="hover:text-gold transition-colors">ten30studio.com</a>
+          <a href="mailto:sales@ten30.studio" class="hover:text-gold transition-colors">Contact</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
+    function filterProducts(category) {
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.dataset.filter === category) {
+          btn.classList.add('bg-gold', 'text-navy');
+          btn.classList.remove('bg-white/10', 'text-white');
+        } else {
+          btn.classList.remove('bg-gold', 'text-navy');
+          btn.classList.add('bg-white/10', 'text-white');
+        }
+      });
+    }
+
     async function checkout(productId) {
       const btn = document.getElementById('btn-' + productId);
+      if (!btn) return;
       const originalText = btn.textContent;
       btn.disabled = true;
       btn.textContent = 'Loading...';
-
       try {
         const res = await fetch('/api/checkout', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ productId }),
         });
-
         const data = await res.json();
-
-        if (!res.ok) {
-          throw new Error(data.error || 'Checkout failed');
-        }
-
+        if (!res.ok) throw new Error(data.error || 'Checkout failed');
         window.location.href = data.url;
       } catch (err) {
         alert('Unable to start checkout. Please try again.');
