@@ -37,6 +37,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Fallback styles — guarantees brand colors render even if Tailwind CDN config fails */
+    .bg-navy { background-color: #1B3A4B !important; }
+    .text-navy { color: #1B3A4B !important; }
+    .bg-gold { background-color: #D4A574 !important; }
+    .text-gold { color: #D4A574 !important; }
+    .bg-cream { background-color: #F5F0EB !important; }
+    .text-cream { color: #F5F0EB !important; }
+    .border-gold { border-color: #D4A574 !important; }
+    .bg-cream-dark { background-color: #E8E0D8 !important; }
+    .bg-midnight { background-color: #0f172a !important; }
+    .bg-surface { background-color: #1e293b !important; }
+    .border-border { border-color: #334155 !important; }
+    .text-accent { color: #3b82f6 !important; }
+    .bg-accent { background-color: #3b82f6 !important; }
+    .text-muted { color: #94a3b8 !important; }
+    .hover\:bg-gold:hover { background-color: #D4A574 !important; }
+    .hover\:text-gold:hover { color: #D4A574 !important; }
+    .hover\:bg-navy\/80:hover { background-color: rgba(27,58,75,0.8) !important; }
+    .hover\:bg-accent-hover:hover { background-color: #2563eb !important; }
+    .hover\:bg-gold\/80:hover { background-color: rgba(212,165,116,0.8) !important; }
+    .from-navy { --tw-gradient-from: #1B3A4B; }
+    .to-navy\/80 { --tw-gradient-to: rgba(27,58,75,0.8); }
+    .bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-to)); }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+    .bg-gold\/20 { background-color: rgba(212,165,116,0.2) !important; }
+    .bg-accent\/10 { background-color: rgba(59,130,246,0.1) !important; }
+    .border-accent\/30 { border-color: rgba(59,130,246,0.3) !important; }
+    .ring-accent\/20 { --tw-ring-color: rgba(59,130,246,0.2); }
+  </style>
 </head>
 <body class="bg-cream text-navy font-sans antialiased">
 
@@ -423,11 +453,11 @@
       });
       document.querySelectorAll('.filter-btn').forEach(btn => {
         if (btn.dataset.filter === category) {
-          btn.classList.add('bg-gold', 'text-navy');
-          btn.classList.remove('bg-white/10', 'text-white');
+          btn.style.backgroundColor = '#D4A574';
+          btn.style.color = '#1B3A4B';
         } else {
-          btn.classList.remove('bg-gold', 'text-navy');
-          btn.classList.add('bg-white/10', 'text-white');
+          btn.style.backgroundColor = 'rgba(255,255,255,0.1)';
+          btn.style.color = '#FFFFFF';
         }
       });
     }
