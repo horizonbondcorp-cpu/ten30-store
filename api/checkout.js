@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY?.trim());
 
 const PRODUCTS = {
   // ── Digital Planners & Templates ──────────────────────────
@@ -217,7 +217,7 @@ export default async function handler(req, res) {
     const session = await stripe.checkout.sessions.create(sessionParams);
     return res.status(200).json({ url: session.url });
   } catch (err) {
-    console.error('[Stripe Error]', err.message);
-    return res.status(500).json({ error: 'Failed to create checkout session.' });
+    console.error('[Stripe Error]', err.type, err.message);
+    return res.status(500).json({ error: 'Failed to create checkout session.', detail: err.message });
   }
 }
