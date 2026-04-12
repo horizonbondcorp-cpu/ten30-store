@@ -1,0 +1,11 @@
+{
+  "name": "ten30-store",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "stripe": "^17.5.0"
+  }
+}
