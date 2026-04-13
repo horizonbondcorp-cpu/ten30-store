@@ -9,6 +9,7 @@
   <meta property="og:description" content="Shop premium digital planners and templates. Also offering SOC 2 compliance and AI agent pilot programs." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ten30-store.vercel.app" />
+  <meta name="p:domain_verify" content="47e09b78594a2ec0aa2c63f16a76ee9a"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwindcss.config = {
@@ -434,57 +435,4 @@
         <div class="flex items-center gap-6 text-sm text-gray-400">
           <a href="https://etsy.com/shop/Ten30Studios" target="_blank" class="hover:text-gold transition-colors">Etsy Shop</a>
           <a href="https://gumroad.com/ten30studios" target="_blank" class="hover:text-gold transition-colors">Gumroad</a>
-          <a href="https://ten30studio.com" target="_blank" class="hover:text-gold transition-colors">ten30studio.com</a>
-          <a href="mailto:sales@ten30.studio" class="hover:text-gold transition-colors">Contact</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    function filterProducts(category) {
-      const cards = document.querySelectorAll('.product-card');
-      cards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        if (btn.dataset.filter === category) {
-          btn.style.backgroundColor = '#D4A574';
-          btn.style.color = '#1B3A4B';
-        } else {
-          btn.style.backgroundColor = 'rgba(255,255,255,0.1)';
-          btn.style.color = '#FFFFFF';
-        }
-      });
-    }
-
-    async function checkout(productId) {
-      const btn = document.getElementById('btn-' + productId);
-      if (!btn) return;
-      const originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'Loading...';
-      try {
-        const res = await fetch('/api/checkout', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ productId }),
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Checkout failed');
-        window.location.href = data.url;
-      } catch (err) {
-        alert('Unable to start checkout. Please try again.');
-        console.error(err);
-      } finally {
-        btn.disabled = false;
-        btn.textContent = originalText;
-      }
-    }
-  </script>
-</body>
-</html>
+          <a href="https://ten30studio.com" target="_blank" class="hover:text-gold transition-col
