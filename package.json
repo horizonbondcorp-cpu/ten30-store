@@ -4,7 +4,8 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vercel dev"
+    "dev": "vercel dev",
+    "vercel-build": "echo 'Static site - no build step needed'"
   },
   "dependencies": {
     "stripe": "^14.25.0"
